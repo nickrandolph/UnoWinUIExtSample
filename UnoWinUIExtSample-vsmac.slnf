@@ -1,0 +1,18 @@
+{
+  "solution": {
+    "path": "UnoWinUIExtSample.sln",
+    "projects": [
+		"UnoWinUIExtSample.Shared\\UnoWinUIExtSample.Shared.shproj",
+
+		"UnoWinUIExtSample.Droid\\UnoWinUIExtSample.Droid.csproj",
+
+		"UnoWinUIExtSample.iOS\\UnoWinUIExtSample.iOS.csproj",
+
+		"UnoWinUIExtSample.Wasm\\UnoWinUIExtSample.Wasm.csproj",
+
+		"UnoWinUIExtSample.macOS\\UnoWinUIExtSample.macOS.csproj",
+
+		"UnoWinUIExtSample.Skia.Gtk\\UnoWinUIExtSample.Skia.Gtk.csproj",
+    ]
+  }
+}

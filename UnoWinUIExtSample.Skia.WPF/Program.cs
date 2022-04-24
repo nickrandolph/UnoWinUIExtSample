@@ -1,0 +1,3 @@
+namespace UnoWinUIExtSample.Skia.Gtk
+{
+}

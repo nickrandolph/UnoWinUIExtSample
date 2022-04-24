@@ -1,0 +1,14 @@
+{
+  "profiles": {
+    "UnoWinUIExtSample.Wasm": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "inspectUri": "{wsProtocol}://{url.hostname}:{url.port}/_framework/debug/ws-proxy?browser={browserInspectUri}",
+
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:56568;http://localhost:56569"
+    }
+  }
+}
