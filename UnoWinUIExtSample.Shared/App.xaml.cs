@@ -15,6 +15,9 @@ using Microsoft.UI.Xaml.Data;
 using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
+using Microsoft.Extensions.Hosting;
+using Uno.Extensions.Hosting;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace UnoWinUIExtSample
 {
@@ -25,13 +28,26 @@ namespace UnoWinUIExtSample
     {
         private Window _window;
 
+        public IHost Host { get; init; }
+
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().
         /// </summary>
         public App()
         {
-            InitializeLogging();
+            Host = UnoHost
+                    .CreateDefaultBuilder()
+                    .ConfigureServices(services =>
+                    {
+                        services
+                            .AddSingleton<IDataService, DataService>()
+                            .AddTransient<MainViewModel>();
+
+                    })
+                    .Build();
+
+            // InitializeLogging();
 
             this.InitializeComponent();
 
@@ -58,7 +74,7 @@ namespace UnoWinUIExtSample
             _window = new Window();
             _window.Activate();
 #else
-			_window = Microsoft.UI.Xaml.Window.Current;
+            _window = Microsoft.UI.Xaml.Window.Current;
 #endif
 
             var rootFrame = _window.Content as Frame;
@@ -177,7 +193,7 @@ namespace UnoWinUIExtSample
             global::Uno.Extensions.LogExtensionPoint.AmbientLoggerFactory = factory;
 
 #if HAS_UNO
-			global::Uno.UI.Adapter.Microsoft.Extensions.Logging.LoggingAdapter.Initialize();
+            global::Uno.UI.Adapter.Microsoft.Extensions.Logging.LoggingAdapter.Initialize();
 #endif
         }
     }

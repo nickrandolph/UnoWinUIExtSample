@@ -12,6 +12,7 @@ using Microsoft.UI.Xaml.Data;
 using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
+using Microsoft.Extensions.DependencyInjection;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -25,6 +26,23 @@ namespace UnoWinUIExtSample
         public MainPage()
         {
             this.InitializeComponent();
+            DataContext = (Application.Current as App).Host.Services.GetRequiredService<MainViewModel>();
+        }
+    }
+
+    public interface IDataService
+    {
+    }
+    public class DataService : IDataService
+    {
+    }
+    public class MainViewModel
+    {
+        public string Title => "Main";
+
+        public MainViewModel(IDataService data)
+        {
+
         }
     }
 }
