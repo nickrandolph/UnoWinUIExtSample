@@ -2,7 +2,7 @@
   <PropertyGroup>
     <OutputType Condition="'$(Configuration)'=='Release'">WinExe</OutputType>
     <OutputType Condition="'$(Configuration)'=='Debug'">Exe</OutputType>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup Condition="exists('..\UnoWinUIExtSample.UWP')">
     <EmbeddedResource Include="..\UnoWinUIExtSample.UWP\Package.appxmanifest" LogicalName="Package.appxmanifest" />
@@ -15,9 +15,9 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Logging" Version="5.0.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="5.0.0" />
-    <PackageReference Include="Uno.WinUI.Skia.Linux.FrameBuffer" Version="4.2.6" />
-    <PackageReference Include="Uno.WinUI.RemoteControl" Version="4.2.6" Condition="'$(Configuration)'=='Debug'" />
-    <PackageReference Include="Uno.UI.Adapter.Microsoft.Extensions.Logging" Version="4.2.6" />
+    <PackageReference Include="Uno.WinUI.Skia.Linux.FrameBuffer" Version="4.3.8" />
+    <PackageReference Include="Uno.WinUI.RemoteControl" Version="4.3.8" Condition="'$(Configuration)'=='Debug'" />
+    <PackageReference Include="Uno.UI.Adapter.Microsoft.Extensions.Logging" Version="4.3.8" />
   </ItemGroup>
-  <Import Project="..\UnoWinUIExtSample.Shared\UnoWinUIExtSample.Shared.projitems" Label="Shared" />
+  <Import Project="..\UnoWinUIExtSample.UI\UnoWinUIExtSample.UI.projitems" Label="Shared" />
 </Project>
